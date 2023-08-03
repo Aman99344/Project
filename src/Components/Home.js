@@ -12,7 +12,7 @@ import globe from "../Images/globe.png"
 const Home = () => {
   return (
     <>
-      <Box className='container' mt="50px" w="100%" h="45vh" >
+      <Box className='container' w="100%" h="45vh" >
         <Box className='overlay' w="100%" h="45vh"></Box>
       </Box>
 
