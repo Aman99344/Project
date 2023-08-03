@@ -1,0 +1,14 @@
+.container {
+    background-image: url("https://onemindservices.com/wp-content/uploads/2022/08/oms-backdrop-scaled.jpeg");
+    background-size: cover;
+}
+
+.overlay {
+    background-color: rgba(36, 42, 146, 0.6);
+
+}
+
+.globeImg{
+    transform: rotate(360deg);
+    transition: all 2s ease 0s;
+}
