@@ -1,4 +1,5 @@
 import { Box, Card, Center, Container, Flex, Image, Heading, Text } from '@chakra-ui/react'
+import { useState, useEffect } from 'react';
 import React from 'react'
 import "../Components/Home.css"
 import Cards from "../Components/Cards.js"
@@ -10,11 +11,29 @@ import globe from "../Images/globe.png"
 
 
 const Home = () => {
+
+  const headings = ["Next Gen Technology", "Innovation", "Pedigree","Delivery"];
+  const [currentHeadingIndex, setCurrentHeadingIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeadingIndex((prevIndex) => (prevIndex + 1) % headings.length);
+    }, 1800);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <>
       <Box className='container' w="100%" h="45vh" >
-        <Box className='overlay' w="100%" h="45vh"></Box>
+        <Box className='overlay' w="100%" h="45vh">
+          <h1>{headings[currentHeadingIndex]}</h1>
+        </Box>
       </Box>
+
+     
 
       <Flex w="80%" m="2px auto">
 
@@ -33,11 +52,11 @@ const Home = () => {
           We are a Full-Services MSP focused on Cloud, Security, IoT, and Datacenter Technologies.
         </Heading>
         <Text w="85%" m="20px auto" textAlign="center" fontSize='2xl'>We align our expertise and experience with the goals of our customers to help them build stronger and more innovative businesses. Investment in our people, process, and leading technologies have resulted in offerings for our customers to realize their objectives.</Text>
-  
+
       </Box>
 
       <Box>
-        <Image className='globeImg'  m="20px auto" w="520px" src={globe}> 
+        <Image className='globeImg' m="20px auto" w="520px" src={globe}>
 
         </Image>
       </Box>
@@ -48,4 +67,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;
